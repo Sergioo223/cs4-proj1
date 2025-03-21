@@ -1,0 +1,22 @@
+from itertools import product
+
+def generate_truth_table(num_vars):
+    """
+    Generates a truth table for the given number of variables.
+    
+    :param num_vars: Number of boolean variables
+    :return: List of tuples representing the truth table
+    """
+    variables = [f'Var{i+1}' for i in range(num_vars)]
+    table = list(product([0, 1], repeat=num_vars))
+    
+    print(" | ".join(variables) + " | Output")
+    print("-" * (num_vars * 4 + 8))
+    
+    for row in table:
+        print(" | ".join(map(str, row)) + " | ?")  # Replace '?' with actual logic if needed
+    
+    return table
+
+# Actual usage
+generate_truth_table(3)
